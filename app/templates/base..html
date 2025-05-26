@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos comunes -->
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi App{% endblock %}</title>
+    
+    <!-- CSS común -->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    
+    <!-- Bloque para CSS específico de páginas -->
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <!-- Menú de navegación (común a todas las páginas) -->
+    {% include 'structure/navbar.html' %}
+    
+    <!-- Sidebar (común) -->
+    {% include 'structure/sidebar.html' %}
+    
+    <!-- Contenido principal (variable) -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <!-- Footer común -->
+    <footer>...</footer>
+    
+    <!-- JS común -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- Bloque para JS específico -->
+    {% block js %}{% endblock %}
+</body>
+</html>
